@@ -8,10 +8,16 @@ Stack.prototype.push = function (record) {
 }
 
 Stack.prototype.pop = function () {
-  return this.data.splice(--this.top)
+  if (this.top <= 0) {
+    return undefined
+  }
+  return this.data.splice(--this.top, 1)
 }
 
 Stack.prototype.peek = function () {
+  if (this.top <= 0) {
+    return undefined
+  }
   return this.data[this.top - 1]
 }
 
