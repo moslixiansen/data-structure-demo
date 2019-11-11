@@ -28,3 +28,9 @@ Queue.prototype.last = function () {
   }
   return this.data[this.length - 1]
 }
+
+Queue.prototype.display = function() {
+  console.log(this.data)
+}
+
+module.exports = Queue
