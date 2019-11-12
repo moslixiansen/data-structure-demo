@@ -10,7 +10,22 @@ const swap = function (arr, i, j) {
   arr[i] = value
 }
 
+
+const object = function (baseObj) {
+  function F () {}
+  F.prototype = baseObj
+  return new F()
+}
+
+const inheritPrototype = function (SubType, SuperType) {
+  const prototype = object(SuperType.prototype)
+  prototype.constructor = SubType
+  SubType.prototype = prototype
+}
+
 module.exports = {
   isType,
-  swap
+  swap,
+  object,
+  inheritPrototype
 }

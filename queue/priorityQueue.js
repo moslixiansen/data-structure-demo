@@ -10,13 +10,7 @@ function PriorityQueue () {
   Queue.call(this)
 }
 
-function inheritPrototype (SuperType, SubType) {
-  const prototype = Object.create(SuperType.prototype)
-  prototype.constructor = SubType
-  SubType.prototype = prototype
-}
-
-inheritPrototype(Queue, PriorityQueue)
+util.inheritPrototype(Queue, PriorityQueue)
 
 PriorityQueue.prototype.dequeueByPriority = function () {
   let maxIndex = this.data.length - 1
