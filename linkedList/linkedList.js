@@ -1,10 +1,8 @@
-const Node = function (element, next) {
-  this.element = element
-  this.next = next
-}
+const Node = require('./node')
 
-const LList = function (head) {
-  this.head = new Node(head, null)
+
+const LList = function (node) {
+  this.head = node
 }
 
 LList.prototype.find = function (element) {
@@ -69,7 +67,7 @@ LList.prototype.display = function () {
 }
 
 // test case
-// const ll = new LList('head')
+// const ll = new LList(new Node('head', null))
 // ll.display()
 // ll.insert(new Node(1, null), 'head')
 // ll.insert(new Node(2, null), 1)
