@@ -23,9 +23,19 @@ const inheritPrototype = function (SubType, SuperType) {
   SubType.prototype = prototype
 }
 
+const curry = function (fn) {
+  const outerArgs = Array.prototype.slice.call(arguments, 1)
+  return function () {
+    const innerArgs = Array.prototype.slice.call(arguments)
+    const args = innerArgs.concat(outerArgs)
+    return fn.apply(null, args)
+  }
+}
+
 module.exports = {
   isType,
   swap,
   object,
-  inheritPrototype
+  inheritPrototype,
+  curry,
 }
